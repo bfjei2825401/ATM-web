@@ -3,21 +3,27 @@
         <v-layout>
             <v-flex xs12 sm6 offset-sm3>
                 <v-card>
-                    <v-container>
+                    <v-container class="atm-title">
                         <v-card-title primary-title>
                             <h2 class="headline mb-0">ATM (Automated Teller Machine)</h2>
+                        </v-card-title>
+                        <v-card-title>
                             <h4>A simple demo ATM for course</h4>
                         </v-card-title>
-                        <v-btn color="warning" v-if="isHomeShow" @click="goHome()">Home</v-btn>
+                        <hr/>
+                        <div class="home-btn-container">
+                            <v-btn color="warning" v-if="isHomeShow" @click="goHome()">Home</v-btn>
+                        </div>
                         <v-card-actions v-if="showMenu">
                             <v-btn color="success" @click="withdraw()">Withdraw</v-btn>
                             <v-btn color="info" @click="deposit()">Deposit</v-btn>
                         </v-card-actions>
                     </v-container>
-                    <router-view></router-view>
+                    <router-view class="atm-content"></router-view>
                     <v-img
                             :src="require('../assets/ATM.jpg')"
                             aspect-ratio="1"
+
                     ></v-img>
                 </v-card>
             </v-flex>
@@ -73,5 +79,15 @@
 </script>
 
 <style scoped>
-
+    .atm-title {
+        padding-bottom: 10px;
+    }
+    .atm-content {
+        padding-top: 0;
+        padding-bottom: 10px;
+    }
+    .home-btn-container {
+        padding-top: 10px;
+        padding-bottom: 10px;
+    }
 </style>
